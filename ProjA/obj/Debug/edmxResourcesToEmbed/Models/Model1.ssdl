@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="area">
+    <Key>
+      <PropertyRef Name="areaname" />
+    </Key>
+    <Property Name="areaname" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="itemNumber">
+    <Key>
+      <PropertyRef Name="itemNumber" />
+    </Key>
+    <Property Name="itemNumber" Type="int" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="manufacturer" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="itemType" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="modelName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="image" Type="image" />
+    <Property Name=" description" Type="nvarchar" MaxLength="300" />
+    <Property Name="views" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="itemNumber" />
+    </Key>
+    <Property Name="itemNumber" Type="int" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="manufacturer" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="itemType" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="modelName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="image" Type="nvarchar" MaxLength="1400" />
+    <Property Name=" description" Type="nvarchar" MaxLength="300" />
+    <Property Name="views" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="itemType">
+    <Key>
+      <PropertyRef Name="itemTypeName" />
+    </Key>
+    <Property Name="itemTypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="manufacturer">
+    <Key>
+      <PropertyRef Name="manufacturerName" />
+    </Key>
+    <Property Name="manufacturerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="CreditCardNumber" />
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="CreditCardNumber" Type="int" Nullable="false" />
+    <Property Name="month" Type="int" Nullable="false" />
+    <Property Name="year" Type="int" Nullable="false" />
+    <Property Name="company" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="dealNumber" />
+    </Key>
+    <Property Name="dealNumber" Type="int" Nullable="false" />
+    <Property Name="seller" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="buyer" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="itemNumber" Type="int" Nullable="false" />
+    <Property Name="manufacturerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="modelName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="dealNumber" />
+    </Key>
+    <Property Name="dealNumber" Type="int" Nullable="false" />
+    <Property Name="seller" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="buyer" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="itemNumber" Type="int" Nullable="false" />
+    <Property Name="manufacturerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="modelName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="area" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="phoneNumber" Type="int" Nullable="false" />
+    <Property Name="isAdmin" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="salt" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__Items__itemType__29221CFB">
+    <End Role="itemType" Type="Self.itemType" Multiplicity="1" />
+    <End Role="Items" Type="Self.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="itemType">
+        <PropertyRef Name="itemTypeName" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="itemType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Items__manufactu__2A164134">
+    <End Role="manufacturer" Type="Self.manufacturer" Multiplicity="1" />
+    <End Role="Items" Type="Self.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="manufacturer">
+        <PropertyRef Name="manufacturerName" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="manufacturer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Items__userName__2BFE89A6">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Items" Type="Self.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userName" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="userName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PaymentMe__usern__17036CC0">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userName" />
+      </Principal>
+      <Dependent Role="PaymentMethod">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__buyer__19DFD96B">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userName" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__itemNumbe__534D60F1">
+    <End Role="itemNumber" Type="Self.itemNumber" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="itemNumber">
+        <PropertyRef Name="itemNumber" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="itemNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__manufactu__14270015">
+    <End Role="manufacturer" Type="Self.manufacturer" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="manufacturer">
+        <PropertyRef Name="manufacturerName" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="manufacturerName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__seller__1AD3FDA4">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userName" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__area__0C85DE4D">
+    <End Role="area" Type="Self.area" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="area">
+        <PropertyRef Name="areaname" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemNumber_ToTable">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="itemNumber" Type="Self.itemNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userName" />
+      </Principal>
+      <Dependent Role="itemNumber">
+        <PropertyRef Name="userName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="area" EntityType="Self.area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itemNumber" EntityType="Self.itemNumber" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itemType" EntityType="Self.itemType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manufacturer" EntityType="Self.manufacturer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Items__itemType__29221CFB" Association="Self.FK__Items__itemType__29221CFB">
+      <End Role="itemType" EntitySet="itemType" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Items__manufactu__2A164134" Association="Self.FK__Items__manufactu__2A164134">
+      <End Role="manufacturer" EntitySet="manufacturer" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Items__userName__2BFE89A6" Association="Self.FK__Items__userName__2BFE89A6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PaymentMe__usern__17036CC0" Association="Self.FK__PaymentMe__usern__17036CC0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__buyer__19DFD96B" Association="Self.FK__Sales__buyer__19DFD96B">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__itemNumbe__534D60F1" Association="Self.FK__Sales__itemNumbe__534D60F1">
+      <End Role="itemNumber" EntitySet="itemNumber" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__manufactu__14270015" Association="Self.FK__Sales__manufactu__14270015">
+      <End Role="manufacturer" EntitySet="manufacturer" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__seller__1AD3FDA4" Association="Self.FK__Sales__seller__1AD3FDA4">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__area__0C85DE4D" Association="Self.FK__Users__area__0C85DE4D">
+      <End Role="area" EntitySet="area" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemNumber_ToTable" Association="Self.FK_itemNumber_ToTable">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="itemNumber" EntitySet="itemNumber" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

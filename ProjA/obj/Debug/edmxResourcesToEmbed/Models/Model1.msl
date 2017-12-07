@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities3">
+    <EntitySetMapping Name="area">
+      <EntityTypeMapping TypeName="Database1Model.area">
+        <MappingFragment StoreEntitySet="area">
+          <ScalarProperty Name="areaname" ColumnName="areaname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="itemNumber">
+      <EntityTypeMapping TypeName="Database1Model.itemNumber">
+        <MappingFragment StoreEntitySet="itemNumber">
+          <ScalarProperty Name="itemNumber1" ColumnName="itemNumber" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="itemType" ColumnName="itemType" />
+          <ScalarProperty Name="modelName" ColumnName="modelName" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="C_description" ColumnName=" description" />
+          <ScalarProperty Name="views" ColumnName="views" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="Database1Model.Items">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="itemNumber" ColumnName="itemNumber" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="itemType" ColumnName="itemType" />
+          <ScalarProperty Name="modelName" ColumnName="modelName" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="C_description" ColumnName=" description" />
+          <ScalarProperty Name="views" ColumnName="views" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="itemType">
+      <EntityTypeMapping TypeName="Database1Model.itemType">
+        <MappingFragment StoreEntitySet="itemType">
+          <ScalarProperty Name="itemTypeName" ColumnName="itemTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="manufacturer">
+      <EntityTypeMapping TypeName="Database1Model.manufacturer">
+        <MappingFragment StoreEntitySet="manufacturer">
+          <ScalarProperty Name="manufacturerName" ColumnName="manufacturerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethod">
+      <EntityTypeMapping TypeName="Database1Model.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="Database1Model.Purchases">
+        <MappingFragment StoreEntitySet="Purchases">
+          <ScalarProperty Name="dealNumber" ColumnName="dealNumber" />
+          <ScalarProperty Name="seller" ColumnName="seller" />
+          <ScalarProperty Name="buyer" ColumnName="buyer" />
+          <ScalarProperty Name="itemNumber" ColumnName="itemNumber" />
+          <ScalarProperty Name="manufacturerName" ColumnName="manufacturerName" />
+          <ScalarProperty Name="modelName" ColumnName="modelName" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="Database1Model.Sales">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="dealNumber" ColumnName="dealNumber" />
+          <ScalarProperty Name="seller" ColumnName="seller" />
+          <ScalarProperty Name="buyer" ColumnName="buyer" />
+          <ScalarProperty Name="itemNumber" ColumnName="itemNumber" />
+          <ScalarProperty Name="manufacturerName" ColumnName="manufacturerName" />
+          <ScalarProperty Name="modelName" ColumnName="modelName" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Database1Model.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

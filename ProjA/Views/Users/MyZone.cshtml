@@ -1,0 +1,363 @@
+﻿@model ProjA.Models.NewItem
+@using ProjA.Models 
+
+
+@{
+    ViewBag.Title = "MyZone";
+}
+
+<h2>MyZone</h2>
+
+@Html.AntiForgeryToken()
+<hr />
+<div style="width:100%;">
+    <div style="float:left; width:200px;height:500px; border-style:solid;border-color:deepskyblue;border-width: 6px;border-radius: 12px;">
+        <h3>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Menu
+        </h3>
+        <a href="#" class="btn btn-group-lg col-md-12" onclick="showAdd()">Add new item</a>
+        <a href="#" class="btn btn-group-lg col-md-12" onclick="showItems()">My Items</a>
+        <a href="#" class="btn btn-group-lg col-md-12"  onclick="showPur()">My purchases</a>
+        <a href="#" class="btn btn-group-lg col-md-12" onclick="showHistory()">History</a>
+    </div>
+    <div id="BeginDiv">
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please select a option from the menu. </h2>
+    </div>
+    <div id="div1" style="margin-left:200px; display:none;">
+        <form id="form1" role="form">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.itemType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("itemType", null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.itemType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.manufacturer, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("manufacturer", null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.manufacturer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.modelName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.modelName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.modelName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.image, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" }) .jpg / .gif / .bmp / .png
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a href="#" class="btn btn-primary " onclick="butnclck()">Add new Item</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="div2" style="margin-left:200px; display:none;" class="table-bordered"><table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Item number</th>
+                    <th>Manufacturer</th>
+                    <th>Item type</th>
+                    <th>Model name</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>image</th>
+                    <th>Remove item</th>
+                </tr>
+            </thead>
+            <tbody id="tab1">
+                @{ Items[] item = (Items[])Session["items"]; }
+                @{ int count = 1; }
+                @{ int itNumber=0; }
+                @{string user = (string)Session["user"];}
+                @if (item != null)
+                {
+
+                    foreach (Items it in item)
+                    {
+                        if (it.userName.Equals(user))
+                        {
+                        <tr id="itemNumber">
+                            <td>@(count++)</td>
+                            <td>@(itNumber = it.itemNumber)</td>
+                            <td>@it.manufacturer</td>
+                            <td>@it.itemType</td>
+                            <td>@it.modelName</td>
+                            <td>@it.status</td>
+                            <td>@it.price</td>
+                            <td>@it.C_description</td>
+                            <td><img src=@it.image style="width:80px;height:80px;"></td>
+                            <td><input type="button" id="@it.itemNumber" value="Remove" onclick="removeItem(event)"></td>
+                        </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+        <input type="hidden" id="counter" value="@(count++)">
+        <input type="hidden" id="itemNumber" value="@(++itNumber)">
+    </div>
+
+
+
+    <div id="divPurchase" style="margin-left:200px; display:none;" class="table-bordered">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Deal number</th>
+                    <th>Seller</th>
+                    <th>Item number</th>
+                    <th>Manufacturer</th>
+                    <th>Model name</th>
+                    <th>Purchase date</th>
+                </tr>
+            </thead>
+            <tbody id="tab1">
+                @{Purchases[] item1 = (Purchases[])Session["pur"]; }
+                @{count = 1; }
+                @{itNumber = 0; }
+                @{user = (string)Session["user"];}
+                @if (item != null)
+                {
+
+                    foreach (Purchases it in item1)
+                    {
+                        if (it.buyer.Equals(user))
+                        {
+                            <tr>
+                                <td>@(count++)</td>
+                                <td>@it.dealNumber</td>
+                                <td>@it.seller</td>
+                                <td>@(itNumber = it.itemNumber)</td>
+                                <td>@it.manufacturerName</td>
+                                <td>@it.modelName</td>
+                                <td>@it.date</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+        <input type="hidden" id="counter" value="@(count++)">
+        <input type="hidden" id="itemNumber" value="@(++itNumber)">
+    </div>
+
+
+    <div id="divHistory" style="margin-left:200px; display:none;" class="table-bordered">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Deal number</th>
+                    <th>Seller</th>
+                    <th>Buyer</th>
+                    <th>Item number</th>
+                    <th>Manufacturer</th>
+                    <th>Model name</th>
+                    <th>Purchase date</th>
+                </tr>
+            </thead>
+            <tbody id="tab1">
+                @{item1 = (Purchases[])Session["pur"]; }
+                @{count = 1; }
+                @{itNumber = 0; }
+                @{user = (string)Session["user"];}
+                @if (item != null)
+                {
+
+                    foreach (Purchases it in item1)
+                    {
+                        if (it.buyer.Equals(user) || it.seller.Equals(user))
+                        {
+                            <tr>
+                                <td>@(count++)</td>
+                                <td>@it.dealNumber</td>
+                                <td>@it.seller</td>
+                                <td>@it.buyer</td>
+                                <td>@(itNumber = it.itemNumber)</td>
+                                <td>@it.manufacturerName</td>
+                                <td>@it.modelName</td>
+                                <td>@it.date</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+        <input type="hidden" id="counter" value="@(count++)">
+        <input type="hidden" id="itemNumber" value="@(++itNumber)">
+    </div>
+
+
+
+</div>
+
+
+<script src="~/Scripts/sweetalert.min.js"></script>
+
+<script>
+
+    var butnclck = function () {
+        // $("#div1").hide();
+        var data = $("#form1").serialize();
+
+        if (!$("#form1").valid()) {
+            return false;
+        }
+
+
+        $.ajax({
+            type: 'POST',
+            url: "/Users/AddItem",
+            data: data,
+
+            success: function (result) {
+                //debugger
+                if (result > 0 ) {
+
+                    $('#tab1').append('<tr><td>' + $("#counter").val() + '</td>'
+                            + '<td>' + result + '</td>'
+                            + '<td>' + $("#manufacturer").val() + '</td>'
+                            +'<td>'+$("#itemType").val()+'</td>'
+                            + '<td>' + $("#modelName").val() + '</td>'
+                            + '<td>' + $("#status").val() + '</td>'
+                            + '<td>' + $("#price").val() + '</td>'
+                            + '<td>' + $("#description").val() + '</td>'
+                            + '<td><img src=' + $("#image").val() + ' style="width:80px;height:80px;"></td>'
+                            + '<td><input type="button" id='+ data +' + value="Remove" onclick="removeItem(event)";></td>'
+                    +    '</tr>');
+
+
+                    swal(
+                       'Item added successfully!',
+                       ' ',
+                       'success'
+                        );
+                    $('#form1')[0].reset();
+
+                }
+                else if (result == "2") {
+                    $("#div1").show();
+                }
+
+            }
+        });
+    }
+
+    var showAdd = function () {
+        $("#divPurchase").hide();
+        $("#divHistory").hide();
+        $("#BeginDiv").hide();
+        $("#div2").hide();
+        $("#div1").show();
+    }
+
+    var removeItem = function () {
+        var data = event.target.id;
+        $.ajax({
+            type: 'POST',
+            url: "/Users/RemoveItem?data="+data,
+
+            success: function (result) {
+                table.removeChild(data);
+            }
+        });
+
+    }
+
+    var showPur = function () {
+        $("#divHistory").hide();
+        $("#divPurchase").show();
+        $("#BeginDiv").hide();
+        $("#div2").hide();
+        $("#div1").hide();
+    }
+
+    var showHistory = function () {
+        $("#divHistory").show();
+        $("#divPurchase").hide();
+        $("#BeginDiv").hide();
+        $("#div2").hide();
+        $("#div1").hide();
+    }
+
+    var showItems = function () {
+        $("#divHistory").hide();
+        $("#divPurchase").hide();
+        $("#BeginDiv").hide();
+        $("#div1").hide();
+        $("#div2").show();
+
+        //debugger
+
+        $.ajax({
+            type: 'POST',
+            url: "/Users/GetItemLength",
+
+            success: function (result) {
+                var it = JSON.parse(result);
+                debugger
+                if (result != null) {
+                   debugger
+
+                }
+                else if (result == "2") {
+                    $("#div1").show();
+                }
+
+            }
+
+        });
+
+
+    }
+
+
+
+</script>
+
+<br /><br /><br /><br /><br /><br />

@@ -1,0 +1,138 @@
+﻿@model ProjA.Models.Register
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+
+<form id="form1" role="form">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div id="div1" style="display:none; color: red">
+            &nbsp;&nbsp;&nbsp;&nbsp;  Username already exist. Try again
+            <br /><br />
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.firstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.mail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.area, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("area", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.area, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.phoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.phoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Confirmpassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.Confirmpassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Confirmpassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="#" class="btn btn-primary " onclick="butnclck()">Create</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="~/Scripts/sweetalert.min.js"></script>
+
+
+
+<script>
+
+    var butnclck = function () {
+        // debugger
+        
+        $("#div1").hide();
+        var data = $("#form1").serialize();
+
+        if (!$("#form1").valid()) {
+            return false;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: "/Users/Creation",
+            data: data,
+
+            success: function (result) {
+                if (result == "1") {
+                    //$("#form1").hide();
+                    //$("#div1").show();
+                    //$(location).attr('href', 'http://localhost:49573/')
+                    swal(
+                       'Successfully registered!',
+                       ' ',
+                       'success'
+                        );
+                    $('#form1')[0].reset();
+
+                }
+                else if (result == "2") {
+                    $("#div1").show();
+                }
+            }
+        });
+    }
+
+
+
+</script>

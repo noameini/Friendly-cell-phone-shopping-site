@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="area">
+          <Key>
+            <PropertyRef Name="areaname" />
+          </Key>
+          <Property Name="areaname" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="itemNumber">
+          <Key>
+            <PropertyRef Name="itemNumber" />
+          </Key>
+          <Property Name="itemNumber" Type="int" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="manufacturer" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="itemType" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="modelName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="image" Type="image" />
+          <Property Name=" description" Type="nvarchar" MaxLength="300" />
+          <Property Name="views" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="itemNumber" />
+          </Key>
+          <Property Name="itemNumber" Type="int" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="manufacturer" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="itemType" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="modelName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="1400" />
+          <Property Name=" description" Type="nvarchar" MaxLength="300" />
+          <Property Name="views" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="itemType">
+          <Key>
+            <PropertyRef Name="itemTypeName" />
+          </Key>
+          <Property Name="itemTypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="manufacturer">
+          <Key>
+            <PropertyRef Name="manufacturerName" />
+          </Key>
+          <Property Name="manufacturerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="CreditCardNumber" />
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="CreditCardNumber" Type="int" Nullable="false" />
+          <Property Name="month" Type="int" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="company" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchases">
+          <Key>
+            <PropertyRef Name="dealNumber" />
+          </Key>
+          <Property Name="dealNumber" Type="int" Nullable="false" />
+          <Property Name="seller" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="buyer" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="itemNumber" Type="int" Nullable="false" />
+          <Property Name="manufacturerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="modelName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="dealNumber" />
+          </Key>
+          <Property Name="dealNumber" Type="int" Nullable="false" />
+          <Property Name="seller" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="buyer" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="itemNumber" Type="int" Nullable="false" />
+          <Property Name="manufacturerName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="modelName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="area" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="phoneNumber" Type="int" Nullable="false" />
+          <Property Name="isAdmin" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="salt" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Items__itemType__29221CFB">
+          <End Role="itemType" Type="Self.itemType" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="itemType">
+              <PropertyRef Name="itemTypeName" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="itemType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Items__manufactu__2A164134">
+          <End Role="manufacturer" Type="Self.manufacturer" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manufacturer">
+              <PropertyRef Name="manufacturerName" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="manufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Items__userName__2BFE89A6">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PaymentMe__usern__17036CC0">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="PaymentMethod">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__buyer__19DFD96B">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="buyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__itemNumbe__534D60F1">
+          <End Role="itemNumber" Type="Self.itemNumber" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="itemNumber">
+              <PropertyRef Name="itemNumber" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="itemNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__manufactu__14270015">
+          <End Role="manufacturer" Type="Self.manufacturer" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manufacturer">
+              <PropertyRef Name="manufacturerName" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="manufacturerName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__seller__1AD3FDA4">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="seller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__area__0C85DE4D">
+          <End Role="area" Type="Self.area" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="area">
+              <PropertyRef Name="areaname" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_itemNumber_ToTable">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="itemNumber" Type="Self.itemNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="itemNumber">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="area" EntityType="Self.area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="itemNumber" EntityType="Self.itemNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="itemType" EntityType="Self.itemType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manufacturer" EntityType="Self.manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Items__itemType__29221CFB" Association="Self.FK__Items__itemType__29221CFB">
+            <End Role="itemType" EntitySet="itemType" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Items__manufactu__2A164134" Association="Self.FK__Items__manufactu__2A164134">
+            <End Role="manufacturer" EntitySet="manufacturer" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Items__userName__2BFE89A6" Association="Self.FK__Items__userName__2BFE89A6">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentMe__usern__17036CC0" Association="Self.FK__PaymentMe__usern__17036CC0">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__buyer__19DFD96B" Association="Self.FK__Sales__buyer__19DFD96B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__itemNumbe__534D60F1" Association="Self.FK__Sales__itemNumbe__534D60F1">
+            <End Role="itemNumber" EntitySet="itemNumber" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__manufactu__14270015" Association="Self.FK__Sales__manufactu__14270015">
+            <End Role="manufacturer" EntitySet="manufacturer" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__seller__1AD3FDA4" Association="Self.FK__Sales__seller__1AD3FDA4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__area__0C85DE4D" Association="Self.FK__Users__area__0C85DE4D">
+            <End Role="area" EntitySet="area" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_itemNumber_ToTable" Association="Self.FK_itemNumber_ToTable">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="itemNumber" EntitySet="itemNumber" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="area">
+          <Key>
+            <PropertyRef Name="areaname" />
+          </Key>
+          <Property Name="areaname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__area__0C85DE4D" FromRole="area" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="itemNumber">
+          <Key>
+            <PropertyRef Name="itemNumber1" />
+          </Key>
+          <Property Name="itemNumber1" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="manufacturer" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="itemType" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="modelName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="C_description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="views" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__itemNumbe__534D60F1" FromRole="itemNumber" ToRole="Sales" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_itemNumber_ToTable" FromRole="itemNumber" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="itemNumber" />
+          </Key>
+          <Property Name="itemNumber" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="manufacturer" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="itemType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="modelName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="1400" FixedLength="false" Unicode="true" />
+          <Property Name="C_description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="views" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="itemType1" Relationship="Self.FK__Items__itemType__29221CFB" FromRole="Items" ToRole="itemType" />
+          <NavigationProperty Name="manufacturer1" Relationship="Self.FK__Items__manufactu__2A164134" FromRole="Items" ToRole="manufacturer" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Items__userName__2BFE89A6" FromRole="Items" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="itemType">
+          <Key>
+            <PropertyRef Name="itemTypeName" />
+          </Key>
+          <Property Name="itemTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK__Items__itemType__29221CFB" FromRole="itemType" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="manufacturer">
+          <Key>
+            <PropertyRef Name="manufacturerName" />
+          </Key>
+          <Property Name="manufacturerName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK__Items__manufactu__2A164134" FromRole="manufacturer" ToRole="Items" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__manufactu__14270015" FromRole="manufacturer" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="CreditCardNumber" />
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="CreditCardNumber" Type="Int32" Nullable="false" />
+          <Property Name="month" Type="Int32" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__PaymentMe__usern__17036CC0" FromRole="PaymentMethod" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Purchases">
+          <Key>
+            <PropertyRef Name="dealNumber" />
+          </Key>
+          <Property Name="dealNumber" Type="Int32" Nullable="false" />
+          <Property Name="seller" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="buyer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="itemNumber" Type="Int32" Nullable="false" />
+          <Property Name="manufacturerName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="modelName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="dealNumber" />
+          </Key>
+          <Property Name="dealNumber" Type="Int32" Nullable="false" />
+          <Property Name="seller" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="buyer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="itemNumber" Type="Int32" Nullable="false" />
+          <Property Name="manufacturerName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="modelName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="itemNumber1" Relationship="Self.FK__Sales__itemNumbe__534D60F1" FromRole="Sales" ToRole="itemNumber" />
+          <NavigationProperty Name="manufacturer" Relationship="Self.FK__Sales__manufactu__14270015" FromRole="Sales" ToRole="manufacturer" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Sales__buyer__19DFD96B" FromRole="Sales" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="Self.FK__Sales__seller__1AD3FDA4" FromRole="Sales" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="area" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phoneNumber" Type="Int32" Nullable="false" />
+          <Property Name="isAdmin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="salt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="area1" Relationship="Self.FK__Users__area__0C85DE4D" FromRole="Users" ToRole="area" />
+          <NavigationProperty Name="itemNumber" Relationship="Self.FK_itemNumber_ToTable" FromRole="Users" ToRole="itemNumber" />
+          <NavigationProperty Name="Items" Relationship="Self.FK__Items__userName__2BFE89A6" FromRole="Users" ToRole="Items" />
+          <NavigationProperty Name="PaymentMethod" Relationship="Self.FK__PaymentMe__usern__17036CC0" FromRole="Users" ToRole="PaymentMethod" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__buyer__19DFD96B" FromRole="Users" ToRole="Sales" />
+          <NavigationProperty Name="Sales1" Relationship="Self.FK__Sales__seller__1AD3FDA4" FromRole="Users" ToRole="Sales" />
+        </EntityType>
+        <Association Name="FK__Users__area__0C85DE4D">
+          <End Role="area" Type="Self.area" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="area">
+              <PropertyRef Name="areaname" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__itemNumbe__534D60F1">
+          <End Role="itemNumber" Type="Self.itemNumber" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="itemNumber">
+              <PropertyRef Name="itemNumber1" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="itemNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_itemNumber_ToTable">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="itemNumber" Type="Self.itemNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="itemNumber">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Items__itemType__29221CFB">
+          <End Role="itemType" Type="Self.itemType" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="itemType">
+              <PropertyRef Name="itemTypeName" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="itemType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Items__manufactu__2A164134">
+          <End Role="manufacturer" Type="Self.manufacturer" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manufacturer">
+              <PropertyRef Name="manufacturerName" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="manufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Items__userName__2BFE89A6">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__manufactu__14270015">
+          <End Role="manufacturer" Type="Self.manufacturer" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manufacturer">
+              <PropertyRef Name="manufacturerName" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="manufacturerName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PaymentMe__usern__17036CC0">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="PaymentMethod">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__buyer__19DFD96B">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="buyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__seller__1AD3FDA4">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="seller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="area" EntityType="Self.area" />
+          <EntitySet Name="itemNumber" EntityType="Self.itemNumber" />
+          <EntitySet Name="Items" EntityType="Self.Items" />
+          <EntitySet Name="itemType" EntityType="Self.itemType" />
+          <EntitySet Name="manufacturer" EntityType="Self.manufacturer" />
+          <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchases" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__Users__area__0C85DE4D" Association="Self.FK__Users__area__0C85DE4D">
+            <End Role="area" EntitySet="area" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__itemNumbe__534D60F1" Association="Self.FK__Sales__itemNumbe__534D60F1">
+            <End Role="itemNumber" EntitySet="itemNumber" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_itemNumber_ToTable" Association="Self.FK_itemNumber_ToTable">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="itemNumber" EntitySet="itemNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Items__itemType__29221CFB" Association="Self.FK__Items__itemType__29221CFB">
+            <End Role="itemType" EntitySet="itemType" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Items__manufactu__2A164134" Association="Self.FK__Items__manufactu__2A164134">
+            <End Role="manufacturer" EntitySet="manufacturer" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Items__userName__2BFE89A6" Association="Self.FK__Items__userName__2BFE89A6">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__manufactu__14270015" Association="Self.FK__Sales__manufactu__14270015">
+            <End Role="manufacturer" EntitySet="manufacturer" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentMe__usern__17036CC0" Association="Self.FK__PaymentMe__usern__17036CC0">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__buyer__19DFD96B" Association="Self.FK__Sales__buyer__19DFD96B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__seller__1AD3FDA4" Association="Self.FK__Sales__seller__1AD3FDA4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities3">
+          <EntitySetMapping Name="area">
+            <EntityTypeMapping TypeName="Database1Model.area">
+              <MappingFragment StoreEntitySet="area">
+                <ScalarProperty Name="areaname" ColumnName="areaname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="itemNumber">
+            <EntityTypeMapping TypeName="Database1Model.itemNumber">
+              <MappingFragment StoreEntitySet="itemNumber">
+                <ScalarProperty Name="itemNumber1" ColumnName="itemNumber" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="itemType" ColumnName="itemType" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="C_description" ColumnName=" description" />
+                <ScalarProperty Name="views" ColumnName="views" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="Database1Model.Items">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="itemNumber" ColumnName="itemNumber" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="itemType" ColumnName="itemType" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="C_description" ColumnName=" description" />
+                <ScalarProperty Name="views" ColumnName="views" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="itemType">
+            <EntityTypeMapping TypeName="Database1Model.itemType">
+              <MappingFragment StoreEntitySet="itemType">
+                <ScalarProperty Name="itemTypeName" ColumnName="itemTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manufacturer">
+            <EntityTypeMapping TypeName="Database1Model.manufacturer">
+              <MappingFragment StoreEntitySet="manufacturer">
+                <ScalarProperty Name="manufacturerName" ColumnName="manufacturerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethod">
+            <EntityTypeMapping TypeName="Database1Model.PaymentMethod">
+              <MappingFragment StoreEntitySet="PaymentMethod">
+                <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+                <ScalarProperty Name="month" ColumnName="month" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="Database1Model.Purchases">
+              <MappingFragment StoreEntitySet="Purchases">
+                <ScalarProperty Name="dealNumber" ColumnName="dealNumber" />
+                <ScalarProperty Name="seller" ColumnName="seller" />
+                <ScalarProperty Name="buyer" ColumnName="buyer" />
+                <ScalarProperty Name="itemNumber" ColumnName="itemNumber" />
+                <ScalarProperty Name="manufacturerName" ColumnName="manufacturerName" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="Database1Model.Sales">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="dealNumber" ColumnName="dealNumber" />
+                <ScalarProperty Name="seller" ColumnName="seller" />
+                <ScalarProperty Name="buyer" ColumnName="buyer" />
+                <ScalarProperty Name="itemNumber" ColumnName="itemNumber" />
+                <ScalarProperty Name="manufacturerName" ColumnName="manufacturerName" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Database1Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

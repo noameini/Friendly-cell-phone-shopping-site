@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84de105419e1416eb5ca6e42bd956d4a" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.area" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.itemNumber" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Items" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.itemType" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.manufacturer" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.PaymentMethod" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Purchases" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Sales" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Users" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK__Users__area__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Sales__itemNumbe__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_itemNumber_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Items__itemType__29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Items__manufactu__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Items__userName__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Sales__manufactu__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__PaymentMe__usern__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Sales__buyer__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Sales__seller__1AD3FDA4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

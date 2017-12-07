@@ -1,0 +1,114 @@
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\ApplicationInsights.config
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\csc.exe
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\System.Collections.Immutable.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\vbc.exe
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\VBCSCompiler.exe
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\roslyn\VBCSCompiler.exe.config
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\ProjA.dll.config
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\ProjA.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\ProjA.pdb
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Antlr3.Runtime.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\EntityFramework.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\EntityFramework.SqlServer.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.Web.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.WindowsServer.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.ApplicationInsights.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.Web.Infrastructure.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Newtonsoft.Json.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.Helpers.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.Mvc.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.Optimization.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.Razor.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.WebPages.Deployment.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.WebPages.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.WebPages.Razor.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\WebGrease.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\EntityFramework.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\EntityFramework.SqlServer.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.Web.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.AI.WindowsServer.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.ApplicationInsights.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.Helpers.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.Mvc.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.Optimization.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.Razor.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.WebPages.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.WebPages.Deployment.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\System.Web.WebPages.Razor.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Antlr3.Runtime.pdb
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\bin\Newtonsoft.Json.xml
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\obj\Debug\ProjA.dll
+c:\users\noam\documents\visual studio 2015\Projects\ProjA\ProjA\obj\Debug\ProjA.pdb
+C:\Users\Noam\Documents\Visual Studio 2015\Projects\ProjA\ProjA\obj\Debug\ProjA.csprojResolveAssemblyReference.cache
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\ApplicationInsights.config
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\csc.exe
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\vbc.exe
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\VBCSCompiler.exe
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\ProjA.dll.config
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\ProjA.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\ProjA.pdb
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Antlr3.Runtime.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\EntityFramework.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\EntityFramework.SqlServer.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.Web.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Newtonsoft.Json.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.Helpers.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.Mvc.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.Optimization.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.Razor.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.WebPages.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.WebPages.Razor.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\WebGrease.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\EntityFramework.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\EntityFramework.SqlServer.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.Web.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.Helpers.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.Mvc.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.Optimization.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.Razor.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.WebPages.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\System.Web.WebPages.Razor.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Antlr3.Runtime.pdb
+C:\Users\Noam\Desktop\ProjA\ProjA\bin\Newtonsoft.Json.xml
+C:\Users\Noam\Desktop\ProjA\ProjA\obj\Debug\ProjA.csprojResolveAssemblyReference.cache
+C:\Users\Noam\Desktop\ProjA\ProjA\obj\Debug\ProjA.dll
+C:\Users\Noam\Desktop\ProjA\ProjA\obj\Debug\ProjA.pdb
